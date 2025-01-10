@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{39A805D7-B1DE-46F2-9221-0BD23011F2BA}"
 EndProject
@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloboTicket.TicketManagemen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloboTicket.TicketManagement.Application", "GloboTicket.TicketManagement.Application\GloboTicket.TicketManagement.Application.csproj", "{DC640848-F2DB-4169-8A8D-DED5B505E743}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloboTicket.TicketManagement.Persistence", "GloboTicket.TicketManagement.Persistence\GloboTicket.TicketManagement.Persistence.csproj", "{027FB77E-9F9A-4860-BB35-4CD5F85ABCC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{DC640848-F2DB-4169-8A8D-DED5B505E743}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC640848-F2DB-4169-8A8D-DED5B505E743}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC640848-F2DB-4169-8A8D-DED5B505E743}.Release|Any CPU.Build.0 = Release|Any CPU
+		{027FB77E-9F9A-4860-BB35-4CD5F85ABCC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{027FB77E-9F9A-4860-BB35-4CD5F85ABCC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{027FB77E-9F9A-4860-BB35-4CD5F85ABCC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{027FB77E-9F9A-4860-BB35-4CD5F85ABCC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +50,6 @@ Global
 		{FAFA1BD0-45E3-40AA-A36A-E4289BF0F72E} = {39A805D7-B1DE-46F2-9221-0BD23011F2BA}
 		{3C8EC15E-FD44-488C-BF7C-4AC2217DC258} = {750106FF-47EE-45ED-8760-E0C8EA05A75F}
 		{DC640848-F2DB-4169-8A8D-DED5B505E743} = {750106FF-47EE-45ED-8760-E0C8EA05A75F}
+		{027FB77E-9F9A-4860-BB35-4CD5F85ABCC6} = {6930B55F-53B7-4EB8-9416-A9A824AEFCDA}
 	EndGlobalSection
 EndGlobal
