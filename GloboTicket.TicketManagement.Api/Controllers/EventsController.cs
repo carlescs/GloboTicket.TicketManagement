@@ -1,5 +1,5 @@
 ﻿using System.Net.Mime;
-using FluentValidation;
+using GloboTicket.TicketManagement.Application.Exceptions;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.DeleteEvent;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
@@ -8,6 +8,7 @@ using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEvents
 using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventsList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ValidationException = FluentValidation.ValidationException;
 
 namespace GloboTicket.TicketManagement.Api.Controllers
 {
@@ -27,8 +28,15 @@ namespace GloboTicket.TicketManagement.Api.Controllers
         [HttpGet("{id:guid}", Name = "GetEventById")]
         public async Task<ActionResult<EventDetailVm>> GetEventById(Guid id)
         {
-            var detail = await mediator.Send(new GetEventDetailQuery(id));
-            return Ok(detail);
+            try
+            {
+                var detail = await mediator.Send(new GetEventDetailQuery(id));
+                return Ok(detail);
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
         }
 
         [HttpPost(Name = "AddEvent")]
