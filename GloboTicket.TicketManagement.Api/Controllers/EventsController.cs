@@ -63,6 +63,10 @@ namespace GloboTicket.TicketManagement.Api.Controllers
                 await mediator.Send(command);
                 return NoContent();
             }
+            catch(NotFoundException)
+            {
+                return NotFound();
+            }
             catch (ValidationException ex)
             {
                 return BadRequest(ex.Errors);
@@ -74,8 +78,15 @@ namespace GloboTicket.TicketManagement.Api.Controllers
         [ProducesDefaultResponseType]
         public async Task<ActionResult> DeleteEvent(Guid id)
         {
-            await mediator.Send(new DeleteEventCommand(id));
-            return NoContent();
+            try
+            {
+                await mediator.Send(new DeleteEventCommand(id));
+                return NoContent();
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
         }
 
         [HttpGet("export", Name = "ExportEvents")]
