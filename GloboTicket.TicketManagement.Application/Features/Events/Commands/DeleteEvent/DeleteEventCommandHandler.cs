@@ -1,4 +1,5 @@
 ﻿using GloboTicket.TicketManagement.Application.Contracts.Persistence;
+using GloboTicket.TicketManagement.Application.Exceptions;
 using GloboTicket.TicketManagement.Domain.Entities;
 using MediatR;
 
@@ -11,6 +12,9 @@ public class DeleteEventCommandHandler(IEventRepository eventRepository)
     public async Task Handle(DeleteEventCommand request, CancellationToken cancellationToken)
     {
         var eventToDelete = await eventRepository.GetByIdAsync(request.EventId);
+        if (eventToDelete == null)
+            throw new NotFoundException(nameof(Event), request.EventId);
+
         await eventRepository.DeleteAsync(eventToDelete);
     }
 }
